@@ -1,0 +1,28 @@
+// https://atcoder.jp/contests/abs/submissions/64232654
+
+%cin
+0
+. $:s, 0 #add $.i
+| $:s, 0 # 1
+. $:s, 1 #sep $
+| $:s, 1 # 2
+. $:s, 2 #join $
+
+*sep
+'
+. ', $:s # $, 0
+. $:s, $i:i # $, $i, $[$i]=" "
+. $:s, $i:i, true #add $[:$i].i + $[$i+1:].i
+| $:s, $i:i, false # $, $i+1
+
+*add
+. $a:i, $b:i #join $a+$b
+
+*join
+. $i:i, $s:s #print $i.s+" "+$s
+
+%print
+. $:s #exit 0
+| $:s # $
+
+%exit

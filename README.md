@@ -4,6 +4,12 @@ Shol で書いた小さなスクリプトをまとめたリポジトリ。
 
 基本的に娯楽用途で色々書いていこうと思いますが、もし何かスクリプトを書くときに、Python より Shol で書いた方が早いかも〜と思うことがあったら、普段使いのコードも上げるかもしれません。いやあ、このリポジトリがどう育っていくのか楽しみです。
 
+## ファイル構成
+
+- [`example/`](example/)：サンプルコードとして上げてるやつ
+
+- [`atcoder/`](atcoder/)：AtCoder に挑戦したコード
+
 ## 姉妹リポジトリ
 
 - [**short-python-scripts**](https://github.com/Se1getsu/short-python-scripts)
