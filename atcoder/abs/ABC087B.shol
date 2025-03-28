@@ -1,0 +1,21 @@
+// https://atcoder.jp/contests/abs/submissions/64238541
+
+%cin
+. $a,$b,$c,$x #calc $a.i*500,0, $b.i*100,0, $c.i*50,0, $x.i
+
+*calc
+. [$A:i,$a,       $B:i,$b,       $C:i,$c,       $X:i] #count ($a+$b+$c=$X).i
+| [$A:i,$a,       $B:i,$b,       $C:i,$c,       $X:i] # $A,$a,$A=$a, $B,$b,$B=$b, $C,$c,$C=$c, $X
+. [$A:i,$a,true,  $B:i,$b,true,  $C:i,$c,true,  $X:i] #count 'end
+| [$A:i,$a,$_a,   $B:i,$b,$_b,   $C:i,$c,false, $X:i] # $A,$a, $B,$b, $C,$c+50, $X
+| [$A:i,$a,$_a,   $B:i,$b,false, $C:i,$c,true,  $X:i] # $A,$a, $B,$b+100, $C,0, $X
+| [$A:i,$a,false, $B:i,$b,true,  $C:i,$c,true,  $X:i] # $A,$a+500, $B,0, $C,0, $X
+
+*count
+. $:i, $n # $+$n
+| 'end, $ #print $
+
+%print
+. $ #exit 0
+| $ # $
+%exit
