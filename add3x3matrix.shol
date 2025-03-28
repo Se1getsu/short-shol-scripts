@@ -1,0 +1,50 @@
+// 3x3 行列の足し算を行うプログラム
+//
+// 入力例:
+// 1 1 1
+// 2 2 2
+// 3 3 3
+//
+// 1 2 3
+// 4 5 6
+// 7 8 9
+//
+// 出力:
+// 2 3 4
+// 6 7 8
+// 10 11 12
+
+%cin
+. "" #
+. $ #iter $
+
+*iter
+'
+. ', $:s #split $, 0
+
+*split
+. [$:s, $i:i] # $, $i, $[$i]=" ", $.len=$i
+. [$:s, $i:i, $b, true] #dist $
+. [$:s, $i:i, true, $b] #dist $[:$i]
+| [$:s, $i:i, true, $b] # $[$i+1:], 0
+| [$:s, $i:i, false, $b] # $, $i+1
+*dist
+0
+. $row:i, $e1:s, $e2:s, $e3:s #add_matrix ', $row, $e1.i, $e2.i, $e3.i
+| $row:i, $e1:s, $e2:s, $e3:s #iter '
+| $row:i, $e1:s, $e2:s, $e3:s # $row+1
+
+*add_matrix
+. [', 0, $l1:i, $l2:i, $l3:i], [', 3, $r1, $r2, $r3] #print_matrix $l1+$r1, $l2+$r2, $l3+$r3
+. [', 1, $l1:i, $l2:i, $l3:i], [', 4, $r1, $r2, $r3] #print_matrix $l1+$r1, $l2+$r2, $l3+$r3
+. [', 2, $l1:i, $l2:i, $l3:i], [', 5, $r1, $r2, $r3] #print_matrix $l1+$r1, $l2+$r2, $l3+$r3, 'print
+
+*print_matrix
+""
+. [$:s, $l1:i, $l2:i, $l3:i] # $+$l1+" "+$l2+" "+$l3+"\n"
+. [$:s, 'print] #cout $
+
+%cout
+. $ #exit 0
+| $ # $
+%exit
