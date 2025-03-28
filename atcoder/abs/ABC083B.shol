@@ -1,0 +1,40 @@
+// https://atcoder.jp/contests/abs/tasks/abc083_b
+
+%cin
+. $ #split $
+
+*split
+0
+. $:s, $i:i # $, $i, $[$i]=" ", $.len=$i
+. [$:s, $i:i, $b, true] #dist $
+. [$:s, $i:i, true, $b] #dist $[:$i]
+| [$:s, $i:i, true, $b] # $[$i+1:], 0
+| [$:s, $i:i, false, $b] # $, $i+1
+*dist
+. $N:s, $A:s, $B:s #nGen $N.i
+| $N:s, $A:s, $B:s #check $A.i, $B.i
+
+// $N から 0 までの整数を calc に送信, 最後に完了記号 'e を送信
+*nGen
+. $:i #calc $.s, 0, $
+| $:i # $-1
+. -1 #calc 'e
+
+// $orig の各位の和 $n を求める
+*calc
+'s
+. [$:s, $n:i, $orig] # $[:-1], $n+$[-1:].i, $orig
+. ["", $n:i, $orig] #check $n, $orig
+. ['s, 'e] #check 'e // 完了
+
+// $A <= $n && $n <= $B を満たす $orig の和を $c を求める
+*check
+'s
+0
+. [$c:i, $A:i, $B:i, $n:i, $orig] # $c + $orig*($A <= $n && $n <= $B).i, $A, $B
+. ['s, $c:i, $A:i, $B:i, 'e] #print $c // 完了
+
+%print
+. $ #exit 0
+| $ # $
+%exit
