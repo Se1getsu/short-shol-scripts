@@ -1,0 +1,33 @@
+// https://atcoder.jp/contests/abs/submissions/64274410
+
+%cin
+. $ #split $
+
+*split
+0
+. $:s, $i:i # $, $i, $[$i]=" ", $.len=$i
+. [$:s, $i:i, $b, true] #dist $
+. [$:s, $i:i, true, $b] #dist $[:$i]
+| [$:s, $i:i, true, $b] # $[$i+1:], 0
+| [$:s, $i:i, false, $b] # $, $i+1
+*dist
+. $N:s, $Y:s #check $Y.i
+| $N:s, $Y:s #calc $N.i, 0, 0
+
+*calc
+. [$n0:i, $n1:i, $n2:i] #check $n0.s+" "+$n1+" "+$n2, $n0*10000+$n1*5000+$n2*1000
+| [$n0:i, $n1:i, $n2:i] # $n0-1, $n1+1, $n2
+. [   -1, $n1:i, $n2:i] # $n1-2, 0, $n2+1
+. [   -1, $n1:i, $n2:i] #check 'e
+
+*check
+0
+. [$c:i, $Y:i, $n:s, $res:i] # $c, $Y, $n, $Y=$res
+. [$c:i, $Y:i, $n:s, true] #print $n
+| [$c:i, $Y:i, $n:s, false] # $c, $Y
+. [$c:i, $Y:i, 'e] #print "-1 -1 -1"
+
+%print
+. $:s #exit 0
+| $:s # $
+%exit
