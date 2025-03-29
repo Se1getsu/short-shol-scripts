@@ -1,0 +1,25 @@
+// https://atcoder.jp/contests/abs/submissions/64286333
+// 恐らく文字列 $ のコピーが行われているせいで O(|S|^2) の計算量がかかって TLE になっている
+// Shol は大きな文字列の操作は不得意かもしれない
+
+%cin
+. $ # $, $[-5:]=dream
+. $, true # $[:-5]
+
+. $ # $, $[-7:]=dreamer
+. $, true # $[:-7]
+
+. $ # $, $[-5:]=erase
+. $, true # $[:-5]
+
+. $ # $, $[-6:]=eraser
+. $, true # $[:-6]
+
+. "" #print YES
+. false, false, false, false #print NO
+| false #
+
+%print
+. $:s #exit 0
+| $:s # $
+%exit
