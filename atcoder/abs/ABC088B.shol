@@ -1,0 +1,41 @@
+// https://atcoder.jp/contests/abs/submissions/64263308
+
+%cin
+. $N, $ #dist $N.i, $N.i
+| $N, $ #split $
+
+*split
+0
+. $:s, $i:i # $, $i, $[$i]=" ", $.len=$i
+. [$:s, $i:i, $b, true] #dist $
+. [$:s, $i:i, true, $b] #dist $[:$i]
+| [$:s, $i:i, true, $b] # $[$i+1:], 0
+| [$:s, $i:i, false, $b] # $, $i+1
+*dist
+. $N:i, $n:i, $:s #sort $.i
+| $N:i, $n:i, $:s # $N, $n-1
+. $N:i, 0 #sort_end_counter $N/2
+
+*sort_end_counter
+. $ # ($-1) * ($>0).i
+. 0 #sort 'e
+*sort
+'s
+. [$a:i, $b:i] # $a+($b-$a)*($a>$b).i, ', $b+($a-$b)*($a>$b).i
+. [', $a:i, $b:i] # $a+($b-$a)*($a>$b).i, $b+($a-$b)*($a>$b).i
+. ' #
+| [$:i, 'e] # 'e
+| [$:i, 'e] #point $
+| ['s, 'e] #point 'e
+
+*point
+'alice
+0
+. ['alice, $p:i, $] # 'bob, $p+$
+| ['bob, $p:i, $] # 'alice, $p-$
+| [$turn:sym, $p:i, 'e] #print $p
+
+%print
+. $ #exit 0
+| $ # $
+%exit
