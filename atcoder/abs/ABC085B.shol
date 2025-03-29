@@ -1,0 +1,31 @@
+// https://atcoder.jp/contests/abs/submissions/64270910
+
+%cin
+'s
+. ['s, $N:s] # 's, $N.i, $N.i
+| ['s, $N:i, $n:i, $] # 's, $N, $n-1
+| ['s, $N:i, $n:i, $] #sort $.i
+. ['s, $N:i, 0] #sort_end_counter $N/2
+
+*sort_end_counter
+. $ # ($-1) * ($>0).i
+. 0 #sort 'e
+*sort
+'s
+. [$a:i, $b:i] # $a+($b-$a)*($a>$b).i, ', $b+($a-$b)*($a>$b).i
+. [', $a:i, $b:i] # $a+($b-$a)*($a>$b).i, $b+($a-$b)*($a>$b).i
+. ' #
+| [$:i, 'e] # 'e
+| [$:i, 'e] #dist $
+| ['s, 'e] #dist 'e
+*dist
+'s
+0
+0
+. ['s, $prev:i, $c:i, $:i] # 's, $, $c+($ != $prev).i
+. ['s, $prev:i, $c:i, 'e] #print $c
+
+%print
+. $:i #exit 0
+| $:i # $
+%exit
