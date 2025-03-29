@@ -27,7 +27,7 @@
 . ["", $n:i, $orig] #check $n, $orig
 . ['s, 'e] #check 'e // 完了
 
-// $A <= $n && $n <= $B を満たす $orig の和を $c を求める
+// $A <= $n && $n <= $B を満たす $orig の和 $c を求める
 *check
 's
 0
